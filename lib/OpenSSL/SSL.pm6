@@ -56,3 +56,5 @@ our sub SSL_set_bio(SSL, OpaquePointer, OpaquePointer) returns int32 is native(&
 our sub SSL_load_client_CA_file(CArray[uint8]) returns OpenSSL::Stack is native(&ssl-lib)  { ... };
 our sub SSL_get_client_CA_list(SSL) returns OpenSSL::Stack is native(&ssl-lib)             { ... };
 our sub SSL_set_client_CA_list(SSL, OpenSSL::Stack) is native(&ssl-lib)                    { ... };
+
+our sub SSL_ctrl(SSL, int32, int32, CArray[uint8]) returns int32 is native(&ssl-lib)    { ... };
