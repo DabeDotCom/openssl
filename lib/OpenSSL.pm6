@@ -99,6 +99,10 @@ method set-socket(IO::Socket $s) {
     0;
 }
 
+method set-sni-hostname(Str $host) {
+    OpenSSL::SSL::SSL_ctrl( $!ssl, 55, 0x00000000, CArray[uint8].new( $host.encode.list, 0 ) );
+}
+
 method bio-write {
     # if we're handling the network in P6, dump everything we can
     if $.using-bio {
